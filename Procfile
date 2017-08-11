@@ -1,1 +1,1 @@
-java $JAVA_OPTS -jar target/demo-0.0.1-SNAPSHOT.jar --server.port=$PORT $JAR_OPTS
+java $JAVA_OPTS target/classes/com/preethi/contact/solstice/SolsticeApplication --server.port=$PORT
