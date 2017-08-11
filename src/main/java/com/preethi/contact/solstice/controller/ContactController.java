@@ -36,4 +36,10 @@ public class ContactController {
         return ResponseEntity.status(200).build();
     }
 
+    @RequestMapping(value = "/checkServer", method = RequestMethod.GET)
+    public String getContact(){
+        return "HelloWorld";
+    }
+
+
 }
