@@ -2,6 +2,7 @@ package com.preethi.contact.solstice.service;
 
 import com.preethi.contact.solstice.dao.ContactDAO;
 import com.preethi.contact.solstice.model.Contact;
+import com.preethi.contact.solstice.model.License;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,13 @@ public class ContactService {
 
     public Contact getContact(String id){
         return contactDAO.findOne(id);
+    }
+
+    public Contact addLicense(String id, License license){
+
+        Contact contact = contactDAO.findOne(id);
+        contact.setLicense(license);
+        contactDAO.save(contact);
+        return contact;
     }
 }

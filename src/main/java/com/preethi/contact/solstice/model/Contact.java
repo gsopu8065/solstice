@@ -19,6 +19,7 @@ public class Contact {
     private String birthdate;
     private Phone phone;
     private Address address;
+    private License license;
 
     public String getId() {
         return id;
@@ -108,6 +109,14 @@ public class Contact {
         this.address = address;
     }
 
+    public License getLicense() {
+        return license;
+    }
+
+    public void setLicense(License license) {
+        this.license = license;
+    }
+
     @Override
     public String toString() {
         return "Contact{" +
@@ -121,6 +130,7 @@ public class Contact {
                 ", birthdate='" + birthdate + '\'' +
                 ", phone=" + phone +
                 ", address=" + address +
+                ", license=" + license +
                 '}';
     }
 }
