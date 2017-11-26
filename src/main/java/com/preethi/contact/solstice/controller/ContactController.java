@@ -3,7 +3,6 @@ package com.preethi.contact.solstice.controller;
 import com.preethi.contact.solstice.model.Contact;
 import com.preethi.contact.solstice.model.License;
 import com.preethi.contact.solstice.service.ContactService;
-import com.sun.deploy.security.AuthKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
