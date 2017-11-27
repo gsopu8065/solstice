@@ -1,8 +1,10 @@
 package com.preethi.contact.solstice.service;
 
 import com.preethi.contact.solstice.dao.ContactDAO;
+import com.preethi.contact.solstice.model.Address;
 import com.preethi.contact.solstice.model.Contact;
 import com.preethi.contact.solstice.model.License;
+import com.preethi.contact.solstice.model.Phone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,43 @@ public class ContactService {
     public Contact getContact(String id){
         return contactDAO.findOne(id);
     }
+    public Phone getContactPhone(String id){
+        Contact contact = contactDAO.findOne(id);
+        if(contact != null)
+        {
+            return contact.getPhone();
+        }
+        else {
+            return new Contact().getPhone();
+        }
+    }
+
+    public void setContactPhone(String id, Phone phone){
+        Contact contact = contactDAO.findOne(id);
+        if(contact != null) {
+            contact.setPhone(phone);
+            contactDAO.save(contact);
+        }
+    }
+
+    public Address getContactAddress(String id){
+        Contact contact = contactDAO.findOne(id);
+        if(contact != null)
+        {
+            return contact.getAddress();
+        }
+        else {
+            return new Contact().getAddress();
+        }
+    }
+
+    public void setContactAddress(String id, Address address){
+        Contact contact = contactDAO.findOne(id);
+        if(contact != null) {
+            contact.setAddress(address);
+            contactDAO.save(contact);
+        }
+    }
 
     public Contact addLicense(String id, License license){
 
@@ -33,5 +72,16 @@ public class ContactService {
         contact.setLicense(license);
         contactDAO.save(contact);
         return contact;
+    }
+
+    public License getContactLicense(String id){
+        Contact contact = contactDAO.findOne(id);
+        if(contact != null)
+        {
+            return contact.getLicense();
+        }
+        else {
+            return new Contact().getLicense();
+        }
     }
 }
