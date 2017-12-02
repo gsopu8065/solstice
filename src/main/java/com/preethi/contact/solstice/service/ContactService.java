@@ -98,7 +98,7 @@ public class ContactService {
                 method.invoke(contact1, contactColums.getColumnValue());
             }
 
-            return Contact.class.cast(contact1);
+            return contactDAO.save(Contact.class.cast(contact1));
         }
         catch (Exception e){
             e.printStackTrace();
