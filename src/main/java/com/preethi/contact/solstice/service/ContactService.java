@@ -1,12 +1,10 @@
 package com.preethi.contact.solstice.service;
 
 import com.preethi.contact.solstice.dao.ContactDAO;
-import com.preethi.contact.solstice.model.Address;
-import com.preethi.contact.solstice.model.Contact;
-import com.preethi.contact.solstice.model.License;
-import com.preethi.contact.solstice.model.Phone;
+import com.preethi.contact.solstice.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.lang.reflect.Method;
 
 /**
  * Created by srujangopu on 8/11/17.
@@ -28,7 +26,7 @@ public class ContactService {
     public Contact getContact(String id){
         return contactDAO.findOne(id);
     }
-    public Phone getContactPhone(String id){
+    public Phone[] getContactPhone(String id){
         Contact contact = contactDAO.findOne(id);
         if(contact != null)
         {
@@ -39,7 +37,7 @@ public class ContactService {
         }
     }
 
-    public void setContactPhone(String id, Phone phone){
+    public void setContactPhone(String id, Phone[] phone){
         Contact contact = contactDAO.findOne(id);
         if(contact != null) {
             contact.setPhone(phone);
@@ -47,7 +45,7 @@ public class ContactService {
         }
     }
 
-    public Address getContactAddress(String id){
+    public Address[] getContactAddress(String id){
         Contact contact = contactDAO.findOne(id);
         if(contact != null)
         {
@@ -58,7 +56,7 @@ public class ContactService {
         }
     }
 
-    public void setContactAddress(String id, Address address){
+    public void setContactAddress(String id, Address[] address){
         Contact contact = contactDAO.findOne(id);
         if(contact != null) {
             contact.setAddress(address);
@@ -82,6 +80,29 @@ public class ContactService {
         }
         else {
             return new Contact().getLicense();
+        }
+    }
+
+    public Contact createOrUpdateGenericContact(GenericTable contact){
+
+        //String parameter
+        Class[] paramString = new Class[1];
+        paramString[0] = String.class;
+
+        try {
+            Class cls = Class.forName("com.preethi.contact.solstice.model.Contact");
+            Object contact1 = cls.newInstance();
+
+            for (GenericColumn contactColums : contact.getColumns()) {
+                Method method = cls.getDeclaredMethod("set"+contactColums.getColumnName(), paramString);
+                method.invoke(contact1, contactColums.getColumnValue());
+            }
+
+            return Contact.class.cast(contact1);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
     }
 }

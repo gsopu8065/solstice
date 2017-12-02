@@ -17,8 +17,8 @@ public class Contact {
     private String email;
     private String website;
     private String birthdate;
-    private Phone phone;
-    private Address address;
+    private Phone[] phone;
+    private Address[] address;
     private License license;
 
     public String getId() {
@@ -93,19 +93,19 @@ public class Contact {
         this.birthdate = birthdate;
     }
 
-    public Phone getPhone() {
+    public Phone[] getPhone() {
         return phone;
     }
 
-    public void setPhone(Phone phone) {
+    public void setPhone(Phone[] phone) {
         this.phone = phone;
     }
 
-    public Address getAddress() {
+    public Address[] getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(Address[] address) {
         this.address = address;
     }
 
@@ -117,20 +117,5 @@ public class Contact {
         this.license = license;
     }
 
-    @Override
-    public String toString() {
-        return "Contact{" +
-                "name='" + name + '\'' +
-                ", company='" + company + '\'' +
-                ", favorite='" + favorite + '\'' +
-                ", smallImageURL='" + smallImageURL + '\'' +
-                ", largeImageURL='" + largeImageURL + '\'' +
-                ", email='" + email + '\'' +
-                ", website='" + website + '\'' +
-                ", birthdate='" + birthdate + '\'' +
-                ", phone=" + phone +
-                ", address=" + address +
-                ", license=" + license +
-                '}';
-    }
+
 }
