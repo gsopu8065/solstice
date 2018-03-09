@@ -1,9 +1,9 @@
-package com.preethi.contact.solstice.model;
+package com.contact.solstice.model;
 
 import org.springframework.data.annotation.Id;
 
 /**
- * Created by srujangopu on 8/11/17.
+ * Created by Sivaram Polamraju on 03/09/18.
  */
 public class Contact {
 
@@ -17,9 +17,8 @@ public class Contact {
     private String email;
     private String website;
     private String birthdate;
-    private Phone[] phone;
-    private Address[] address;
-    private License license;
+    private Phone phone;
+    private Address address;
 
     public String getId() {
         return id;
@@ -93,29 +92,33 @@ public class Contact {
         this.birthdate = birthdate;
     }
 
-    public Phone[] getPhone() {
-        return phone;
-    }
+	/**
+	 * @return the phone
+	 */
+	public Phone getPhone() {
+		return phone;
+	}
 
-    public void setPhone(Phone[] phone) {
-        this.phone = phone;
-    }
+	/**
+	 * @param phone the phone to set
+	 */
+	public void setPhone(Phone phone) {
+		this.phone = phone;
+	}
 
-    public Address[] getAddress() {
-        return address;
-    }
+	/**
+	 * @return the address
+	 */
+	public Address getAddress() {
+		return address;
+	}
 
-    public void setAddress(Address[] address) {
-        this.address = address;
-    }
-
-    public License getLicense() {
-        return license;
-    }
-
-    public void setLicense(License license) {
-        this.license = license;
-    }
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 
 }

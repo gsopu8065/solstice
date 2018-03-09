@@ -1,4 +1,4 @@
-package com.preethi.contact.solstice;
+package com.contact.solstice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

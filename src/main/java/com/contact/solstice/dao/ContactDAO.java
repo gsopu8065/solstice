@@ -1,8 +1,9 @@
-package com.preethi.contact.solstice.dao;
+package com.contact.solstice.dao;
 
-import com.preethi.contact.solstice.model.Contact;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
+
+import com.contact.solstice.model.Contact;
 
 /**
  * Created by srujangopu on 8/11/17.

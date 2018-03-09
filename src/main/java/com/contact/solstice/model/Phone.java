@@ -1,7 +1,7 @@
-package com.preethi.contact.solstice.model;
+package com.contact.solstice.model;
 
 /**
- * Created by srujangopu on 8/11/17.
+ * Created by Sivaram Polamraju on 03/09/18.
  */
 public class Phone {
 
