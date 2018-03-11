@@ -40,8 +40,12 @@ public class ContactController {
     }
     
     @RequestMapping(value = "/solstice/getContactByMobileNumber/{mobileNumber}", method = RequestMethod.GET)
-    public Contact getContactByNumber(@PathVariable String mobileNumber){
-        return contactService.getContactByMobileNumber(mobileNumber);
+    public ResponseEntity<?> getContactByNumber(@PathVariable String mobileNumber){
+    	Contact contact =contactService.getContactByMobileNumber(mobileNumber);
+    	if(contact!=null)
+             return ResponseEntity.ok(contact);
+    	else
+    		return ResponseEntity.status(204).build();
     }
     
     @RequestMapping(value = "/solstice/getAllContactsFromSameCity/{city}", method = RequestMethod.GET)

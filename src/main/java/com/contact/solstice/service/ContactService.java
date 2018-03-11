@@ -43,7 +43,7 @@ public class ContactService {
              }
         	}
         }
-        return new Contact();
+        return null;
     }
     
     public List<Contact> getAllContactsFromSameCity(String city){
